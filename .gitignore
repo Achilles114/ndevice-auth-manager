@@ -1,0 +1,18 @@
+# Ignore Python virtual environments and cache
+backend/venv/
+backend/__pycache__/
+backend/*.pyc
+backend/*.pyo
+backend/*.pyd
+
+# Ignore .env files containing secrets
+backend/.env
+
+# Ignore Node.js dependencies and env files for frontend
+frontend/node_modules/
+frontend/.env
+frontend/.env.local
+
+# Ignore system files
+.DS_Store
+Thumbs.db

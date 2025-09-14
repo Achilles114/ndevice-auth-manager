@@ -1,0 +1,7 @@
+fastapi
+uvicorn[standard]
+python-jose[cryptography]
+requests
+pydantic-settings
+sqlalchemy
+python-dotenv
