@@ -32,8 +32,12 @@ jobs:
           source venv/bin/activate
           pytest tests/
 
-      - name: Deploy to Render
-        uses: render-examples/github-actions@v1
-        with:
-          api_key: ${{ secrets.RENDER_API_KEY }}
-          service_id: ${{ secrets.RENDER_SERVICE_ID }}
+      - name: Install Render CLI
+        run: |
+          curl -fsSL https://cdn.render.com/cli/install.sh | bash
+
+      - name: Deploy to Render via CLI
+        env:
+          RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}
+        run: |
+          render deploy service --service-id ${{ secrets.RENDER_SERVICE_ID }}
