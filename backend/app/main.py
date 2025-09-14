@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI,Response
 from fastapi.middleware.cors import CORSMiddleware
 from app.core.config import settings
 from app.core.database import init_db
@@ -25,3 +25,7 @@ def on_startup():
 @app.get("/")
 async def root():
     return {"message": "Backend is healthy"}
+
+@app.head("/")
+async def root_head():
+    return Response(status_code=200)
